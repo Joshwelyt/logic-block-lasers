@@ -4,3 +4,4 @@ author: "NiChrosia"
 description: A mod that adds lasers to logic blocks.
 minGameVersion: "126.1"
 version: "1.0"
+hidden: true
