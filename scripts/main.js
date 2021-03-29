@@ -35,7 +35,19 @@ function logicLasers() {
 };
 
 let logicLaserEffect = new Effect(10, e => {
-	logicLasers();
+	if (Core.settings.getBool("logic-block-lasers")) {
+		logicLasers();
+	}
 });
 
 Events.run(Trigger.update, () => {logicLaserEffect.at(Vars.player.x, Vars.player.y)});
+
+Events.on(ClientLoadEvent, () => {
+    const addCheck = (key, default_value) => {
+		Vars.ui.settings.graphics.checkPref(key, Core.settings.getBool(key));
+		Core.settings.defaults(key, default_value);
+	}
+    addCheck("logic-block-lasers", true);
+    
+    Log.info("Mod [accent]Logic Block Lasers[] loaded successfully.");
+});
