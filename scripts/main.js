@@ -1,3 +1,9 @@
+// Color
+
+const color = Color.valueOf("a794e3")
+
+// Logic Block Laser effect
+
 function logicLasers() {
 	Groups.build.each(b => {
 		if (b.block.class.getSuperclass() == LogicBlock) {
@@ -14,7 +20,7 @@ function logicLasers() {
 					linkOffset.trns(blockAngle, 3 * linkBuild.block.size);
 					
 					Draw.z(Layer.power);
-					Draw.color(Color.valueOf("a794e3"));
+					Draw.color(color);
 					Lines.stroke(1);
 					Drawf.laser(b.team, Core.atlas.find("laser"), Core.atlas.find("laser-end"), b.x + blockOffset.x, b.y + blockOffset.y, linkBuild.x + linkOffset.x, linkBuild.y + linkOffset.y, linkAngle, 0.3);
 				}
