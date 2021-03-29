@@ -14,11 +14,8 @@ function logicLasers() {
 	Vars.indexer.eachBlock(Vars.player.team(), Vars.player.x, Vars.player.y, ((screenSize * width + screenSize * height) / 2) * Vars.tilesize, b => b.block.class.getSuperclass() == LogicBlock, b => {
 		if (b.block.class.getSuperclass() == LogicBlock) {
 			b.links.each(l => {
-				let linkBuild = Vars.world.tile(l.x, l.y).build;
-				
-				print("---")
-				print(l.active);
-				print(Core.settings.getBool("display-inactive-links"));
+				let linkBuild = Vars.world.build(l.x, l.y);
+
 				if (linkBuild != null && (Core.settings.getBool("display-inactive-links") ? true : l.active)) {
 					let linkAngle = b.angleTo(linkBuild);
 					let blockAngle = linkBuild.angleTo(b);
