@@ -1,6 +1,7 @@
 // Color
 
-const color = Color.valueOf("a794e3")
+const color = Color.valueOf("a794e3") 
+// This is a hexadecimal value. If you want to change this, go to https://www.google.com/search?q=hexadecimal+color+picker, pick a color, then copy the string in the thing that says HEX. Remove the hashtag, and then paste it above in the "".
 
 // Logic Block Laser effect
 
