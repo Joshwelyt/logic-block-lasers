@@ -9,13 +9,17 @@ function logicLasers() {
 	let width = Core.graphics.getWidth() / 7.5;
 	let height = Core.graphics.getHeight() / 7.4;
 	let screenSize = 1 / Vars.renderer.getDisplayScale();
+	screenSize = screenSize > 20 ? 20 : screenSize;
 	
 	Vars.indexer.eachBlock(Vars.player.team(), Vars.player.x, Vars.player.y, ((screenSize * width + screenSize * height) / 2) * Vars.tilesize, b => b.block.class.getSuperclass() == LogicBlock, b => {
 		if (b.block.class.getSuperclass() == LogicBlock) {
 			b.links.each(l => {
 				let linkBuild = Vars.world.tile(l.x, l.y).build;
 				
-				if (linkBuild != null) {
+				print("---")
+				print(l.active);
+				print(Core.settings.getBool("display-inactive-links"));
+				if (linkBuild != null && (Core.settings.getBool("display-inactive-links") ? true : l.active)) {
 					let linkAngle = b.angleTo(linkBuild);
 					let blockAngle = linkBuild.angleTo(b);
 					
@@ -48,6 +52,7 @@ Events.on(ClientLoadEvent, () => {
 		Core.settings.defaults(key, default_value);
 	}
     addCheck("logic-block-lasers", true);
+	addCheck("display-inactive-links", false);
     
     Log.info("Mod [accent]Logic Block Lasers[] loaded successfully.");
 });
