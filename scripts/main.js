@@ -30,7 +30,7 @@ function logicLasers() {
 	});
 };
 
-logicLaserEffect = new Effect(10, e => {
+let logicLaserEffect = new Effect(10, e => {
 	logicLasers();
 });
 
