@@ -1,7 +1,7 @@
 ## Logic Block Lasers
 
 This mod adds lasers to logic blocks, representing their links.  
-Color can be modified `in main.js`
+Color can be modified in `main.js`
 
 ### Known issues
 
